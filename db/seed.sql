@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS upperbody;
 DROP TABLE IF EXISTS lowerbody;
 DROP TABLE IF EXISTS meals;
+DROP TABLE IF EXISTS users;
 
 
 CREATE TABLE upperbody (
@@ -13,6 +14,12 @@ CREATE TABLE lowerbody (
   id SERIAL PRIMARY KEY,
   workout_name VARCHAR (255) NOT NULL,
   body_part VARCHAR (255) NOT NULL
+);
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  email VARCHAR (255) NOT NULL,
+  password_digest VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE meals (

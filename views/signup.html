@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Expert Fitness | Sign Up/Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+      <div class="header twelve columns">
+        <h1>Expert Fitness</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <nav class="twelve columns">
+        <ul>
+          <li><a href="http://localhost:7000/">Home</a></li>
+          <li><a href="/workout">Workouts</a></li>
+          <li><a href="/meal">Meals</a></li>
+          <li><a href="/plan">Plan</a></li>
+        </ul>
+      </nav>
+    </div>
+
+
+<div class="main-container">
+      <div class="border-container">
+        <h1>Join the team!</h1>
+        <div class="col-lg-6 center-block">
+          <div class="well bs-component">
+            <form class="form-horizontal" action="/signup" method="post">
+              <fieldset>
+                <legend>Sign Up</legend>
+                <div class="form-group">
+                  <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                  <div class="col-lg-10">
+                    <input name="email" type="text" class="form-control" id="inputEmail" placeholder="Email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                  <div class="col-lg-10">
+                    <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Password">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-lg-10 col-lg-offset-2">
+                    <button type="submit" class="btn btn-primary">Join!</button>
+                    <p>Already a member?<a href="/login"> Login</a></p>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <footer class="twelve columns">
+        <p><span class="goodbye">Find us on <a>twitter</a>, <a>facebook</a>!</span></p>
+        <div class="dog-logo"></div>
+        <p>&copy; Expert Fitness</p>
+      </footer>
+    </div>
+
+  </div>
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
