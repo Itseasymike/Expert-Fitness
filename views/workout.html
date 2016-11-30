@@ -21,30 +21,42 @@
           <li><a href="http://localhost:7000/">Home</a></li>
           <li><a href="/workout">Workouts</a></li>
           <li><a href="/meal">Meals</a></li>
-          <li><a href="/plan">Plan</a></li>
+          <li><a href="/plan">Your Plan</a></li>
         </ul>
       </nav>
     </div>
 
-    <div class="row">
+  <div id="right" class="row">
+      <div class="six columns">
+        <div class="list-content">
+          <h4>Meals:</h4>
+    <form method="POST" action="/workout?_method=DELETE">
+     <h5 id="test"></h5> <button>Delete</button>
+    </form>
+    <form method="POST" action="/workout">
+        Meal Search:<input name="meal" id="meal"><br>
+      <button class="button-primary">Submit</button>
+    </form>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="left" class="row">
       <div class="five columns">
         <div class="round"></div>
         <h4>Workouts:</h4>
-      </div>
-    </div>
-    <div class="row">
-      <div class="twelve columns">
-        <div class="round"></div>
-        <h4>Monday, Wednesday, and Friday</h4>
+        <h5>Monday, Wednesday, and Friday</h5>
               {{#data}}
               <p>{{name}}</p>
               {{/data}}
       </div>
     </div>
-    <div class="row">
+
+    <div id="bottom-left" class="row">
       <div class="five columns">
         <div class="round"></div>
-        <h4>Tuesday and Thrusday</h4>
+        <h5>Tuesday and Thrusday</h5>
               {{#data}}
               <p>{{workout_name}}</p>
               {{/data}}

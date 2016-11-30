@@ -17,8 +17,8 @@ CREATE TABLE lowerbody (
 
 CREATE TABLE meals (
   id SERIAL PRIMARY KEY,
-  name VARCHAR (255) NOT NULL,
-  calories VARCHAR (255) NOT NULL
+  food_name VARCHAR (255),
+  calories VARCHAR (255)
 );
 
 
