@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Expert Fitness</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+      <div class="header twelve columns">
+        <h1>Expert Fitness</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <nav class="twelve columns">
+        <ul>
+          <li><a href="http://localhost:7000/">Home</a></li>
+          <li><a href="/workout">Workouts</a></li>
+          <li><a href="/meal">Meals</a></li>
+          <li><a href="/plan">Plan</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="row">
+      <div class="five columns">
+        <div class="round"></div>
+        <h4>A plan for you:</h4>
+      </div>
+
+<!--   <div class="seven columns">
+        <div class="list-content">
+          <h4>Meals:</h4>
+        </div>
+      </div>
+    </div> -->
+
+     <!--  <form method="POST" action="/plan">
+        Meal Search:<input name="meal" id="meal"><br>
+      <button class="button-primary">Submit</button>
+      </form> -->
+
+    <form method="POST" action="/plan?_method=DELETE">
+      <button>Delete</button>
+    </form>
+
+    <form method="POST" action="/plan?_method=PUT">
+    <button>Save</button>
+    </form>
+
+    <div class="row">
+      <footer class="twelve columns">
+        <p><span class="goodbye">Find us on <a>twitter</a>, <a>facebook</a>!</span></p>
+        <div class="dog-logo"></div>
+        <p>&copy; Expert Fitness</p>
+      </footer>
+    </div>
+
+  </div>
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
