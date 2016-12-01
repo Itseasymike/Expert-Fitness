@@ -34,24 +34,6 @@ app.listen(PORT, function(){
  console.log('APP IS ALIVE ON:', PORT);
 });
 
-app.get('/', function(req, res){
-  var logged_in,
-        email;
-
-  if (req.session.user) {
-    logged_in = true;
-    email = req.session.user.email;
-  };
-
-  var data = {
-    'logged_in': false,
-    'email': email
-  }
-
-  res.render('index', data);
-});
-
-
 //Initial API call
 app.get('/api', function(req, res){
   var food = req.query.value
@@ -103,17 +85,42 @@ app.put('/plan', function(req, res) {
   res.render('plan');
 });
 
+app.get('/', function(req, res){
+  var logged_in,
+        email;
+
+  if (req.session.user) {
+    logged_in = true;
+    email = req.session.user.email;
+  };
+
+  var data = {
+    'logged_in': false,
+    'email': email
+  }
+
+  res.render('index', data);
+});
+
 app.get('/signup',function(req, res){
   res.render('signup');
 });
+app.post('/signup', function(req, res){
+  var data = req.body;
+  bcrypt.hash(data.password, 10, function(err, hash){
+    db.none('INSERT INTO users (email, password_digest) VALUES ($1, $2)',
+      [data.email, hash]).then(function(){
+      res.send("User Created!");
+    })
+  })
+  console.log(data);
+})
 
 app.get('/login',function(req, res){
   res.render('login');
 });
-
 app.post('/login', function(req, res){
-  var data= req.body;
-
+  var data = req.body;
   db.one('SELECT * FROM users WHERE email = $1',
       [data.email]
     ).catch(function(user){
@@ -130,17 +137,8 @@ app.post('/login', function(req, res){
     })
 })
 
-app.post('/signup', function(req, res){
-  var data = req.body;
-  bcrypt.hash(data.password, 10, function(err, hash){
-    db.none('INSERT INTO users (email, password_digest) VALUES ($1, $2)',
-      [data.email, hash]).then(function(){
-      res.send("User Created!");
-    })
+app.get('/logout', function(req, res){
+       req.session.user = null;
+            res.redirect('login');
   })
-  console.log(data);
-})
-
-
-
 
