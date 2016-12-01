@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS upperbody;
 DROP TABLE IF EXISTS lowerbody;
-DROP TABLE IF EXISTS meals;
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS meals CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
 
 
 CREATE TABLE upperbody (
@@ -18,14 +18,16 @@ CREATE TABLE lowerbody (
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
+  user_name VARCHAR (255) NOT NULL,
   email VARCHAR (255) NOT NULL,
   password_digest VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE meals (
   id SERIAL PRIMARY KEY,
-  food_name VARCHAR (255),
-  calories VARCHAR (255)
+  food_name VARCHAR (255) NOT NULL,
+  calories VARCHAR (255) NOT NULL,
+  user_id SERIAL REFERENCES users(id)
 );
 
 

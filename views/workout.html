@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Expert Fitness</title>
+  <title>Expert Fitness | Our Workouts</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
   <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="style.css">
@@ -23,7 +23,7 @@
           <li><a href="/workout">Workouts</a></li>
           <li><a href="/meal">Meals</a></li>
           <li><a href="/plan">Your Plan</a></li>
-          <li><a href="/signup">Sign Up</a></li>
+          <li><a href="/signup">Sign Up/Login</a></li>
         </ul>
       </nav>
     </div>
@@ -32,13 +32,19 @@
       <div class="six columns">
         <div class="list-content">
           <h4>Meals:</h4>
-    <form method="POST" action="/workout?_method=DELETE">
-     <h5 id="test"></h5> <button>Delete</button>
-    </form>
-     <form method="POST" action="/workout">
-        Meal Search:<input type="hidden" name="meal" id="meal"><br>
+           <h5 id="test"></h5>
+
+     <!-- <form method="POST" action="/workout"> -->
+
+        Meal Search:<input name="meal" id="meal"><br>
       <button class="button-primary">Submit</button>
-     </form>
+     <!-- </form> -->
+
+
+    <form name="save" method="POST" action="workout">
+    <p></p><button id="save-btn">Save</button>
+    </form>
+
         </div>
       </div>
     </div>

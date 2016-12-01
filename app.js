@@ -1,3 +1,5 @@
+//NPM Packages - Variables - Setup
+
 var express = require('express'),
       request = require('request'),
       app = express(),
@@ -14,7 +16,6 @@ var express = require('express'),
       API_ID = process.env.API_ID;
 
 
-
 app.engine('html', mustache());
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
@@ -23,16 +24,37 @@ app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.listen(PORT, function(){
+ console.log('APP IS ALIVE ON:', PORT);
+});
+
+// User login session set up
 app.use(session({
   secret: 'ExperFitness',
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false }
 }))
+app.get('/login', function(req, res){
+  var logged_in,
+        email,
+        userName;
 
-app.listen(PORT, function(){
- console.log('APP IS ALIVE ON:', PORT);
+  if (req.session.user) {
+    logged_in = true;
+    email = req.session.user.email;
+    userName =  req.session.user.user_name;
+  };
+
+  var data = {
+    'logged_in': logged_in,
+    'email': email,
+    'userName': userName
+  }
+
+  res.render('login', data);
 });
+
 
 //Initial API call
 app.get('/api', function(req, res){
@@ -46,6 +68,10 @@ app.get('/api', function(req, res){
     console.log(data);
   }
   )
+})
+
+app.get('/', function(req, res){
+  res.render('index');
 })
 
 app.get('/workout', function(req, res){
@@ -62,45 +88,39 @@ app.get('/meal', function(req, res) {
   res.render('meal');
 });
 
-// app.post('/workout', function(req, res) {
-//     meal = req.body
-//     db.none('INSERT INTO meals (food_name, calories) VALUES ($1,$2)',
-//     [meal.item_name, meal.nf_calories])
-//   res.render('workout');
-// });
+var pry = require('pryjs');
 
-app.delete('/workout', function(req, res) {
-  id = req.params.id
+app.post('/workout', function(req, res) {
+    // eval(pry.it)
+    console.log(req.body)
+    meal = req.body;
+    db.none('INSERT INTO meals (food_name, calories) VALUES ($1,$2)',
+    [meal.mealTest, meal.calories]).then(function(data){
+        res.render('plan');
+    })
+    console.log(meal.calories);
+});
+
+app.delete('/plans', function(req, res) {
+  id = req.params.id;
   db.none('DELETE FROM meals WHERE id=$1', [id])
   res.send('meal removed');
 });
 
 
 app.get('/plan', function(req, res) {
-  res.render('plan');
+  id = req.body;
+  db.one('SELECT * FROM meals WHERE user_id = $1', [id]).then(function(data){
+     res.render('plan', data);
+  })
 });
 
-app.put('/plan', function(req, res) {
-  // db.none('UPDATE meals')
-  res.render('plan');
-});
+app
 
-app.get('/', function(req, res){
-  var logged_in,
-        email;
-
-  if (req.session.user) {
-    logged_in = true;
-    email = req.session.user.email;
-  };
-
-  var data = {
-    'logged_in': false,
-    'email': email
-  }
-
-  res.render('index', data);
-});
+// app.put('/plan', function(req, res) {
+//   // db.none('UPDATE meals')
+//   res.render('plan');
+// });
 
 app.get('/signup',function(req, res){
   res.render('signup');
@@ -108,13 +128,14 @@ app.get('/signup',function(req, res){
 app.post('/signup', function(req, res){
   var data = req.body;
   bcrypt.hash(data.password, 10, function(err, hash){
-    db.none('INSERT INTO users (email, password_digest) VALUES ($1, $2)',
-      [data.email, hash]).then(function(){
-      res.send("User Created!");
+    db.none('INSERT INTO users (user_name, email, password_digest) VALUES ($1, $2, $3)',
+      [data.user_name, data.email, hash]).then(function(){
+      res.send("Your account was created!");
     })
   })
   console.log(data);
 })
+
 
 app.get('/login',function(req, res){
   res.render('login');
@@ -122,20 +143,20 @@ app.get('/login',function(req, res){
 app.post('/login', function(req, res){
   var data = req.body;
   db.one('SELECT * FROM users WHERE email = $1',
-      [data.email]
-    ).catch(function(user){
-      res.send('User not found. Check email or password.');
+      [data.email]).catch(function(user){
+      res.send('User account not found. Check Login information.');
     }).then(function(user){
         bcrypt.compare(data.password, user.password_digest, function(err, cmp){
           if (cmp) {
             req.session.user = user;
-            res.redirect('/');
+            res.redirect('/login');
           } else {
-            res.send("User not found. Check email or password.")
+            res.send("User account not found. Check Login information.")
           }
         })
     })
 })
+
 
 app.get('/logout', function(req, res){
        req.session.user = null;
