@@ -9,7 +9,7 @@ body {
   height: 200px;
 }
 #right {
-  float: right;
+  padding: 50px;
   }
 #left {
   float: left;

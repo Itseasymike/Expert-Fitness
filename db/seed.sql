@@ -26,8 +26,8 @@ CREATE TABLE users (
 CREATE TABLE meals (
   id SERIAL PRIMARY KEY,
   food_name VARCHAR (255) NOT NULL,
-  calories VARCHAR (255) NOT NULL,
-  user_id SERIAL REFERENCES users(id)
+  calories VARCHAR (255) NOT NULL
+  -- user_id SERIAL REFERENCES users(id)
 );
 
 
