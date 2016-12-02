@@ -5,7 +5,7 @@ CRUD App
 # Expert Fitness App hosted on Heroku
 
 https://expert-fitness.herokuapp.com/
-
+![alt tag](https://media.giphy.com/media/3oriOeenSWC0vCwjWE/source.gif)
 ## About
 
 Expert Fitness is the go to app for those who want precise excercise routines tailored to their daily meal plan. In our app users can create an account, view their excercise routines, post and update their meals as they go through their day. With time our users will become the fitness experts themselves! 
