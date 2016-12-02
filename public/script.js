@@ -19,7 +19,7 @@ $(document).ready(function() {
     getData(value);
   });
 
-  function appendDom(data) {
+  var appendDom = function(data) {
     $(' #test ').append('<h5>' + data.hits[0].fields.item_name + ' | Calories: ' + data.hits[0].fields.nf_calories + '</h5>');
     $(' #save-btn ').click(function(event) {
       var mealName = data.hits[0].fields.item_name;

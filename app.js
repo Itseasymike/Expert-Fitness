@@ -1,4 +1,4 @@
-//NPM Packages - Variables - Setup
+//NPM packages - Variables - Setup
 var express = require('express'),
   request = require('request'),
   app = express(),

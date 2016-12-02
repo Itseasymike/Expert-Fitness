@@ -1,54 +1,5 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Expert Fitness | Our Workouts</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
-  <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="container">
-    <div class="row">
-      <div class="header twelve columns">
-        <h1>Expert Fitness</h1>
-      </div>
-    </div>
-
-    <div class="row">
-      <nav class="twelve columns">
-        <ul>
-          <li><a href="http://localhost:7000/">Home</a></li>
-          <li><a href="/workout">Routines</a></li>
-          <li><a href="/meal">Meals</a></li>
-          <li><a href="/plan">Your Plan</a></li>
-          <li><a href="/signup">Sign Up/Login</a></li>
-        </ul>
-      </nav>
-    </div>
-
-
-
-    <div id="left" class="row">
-      <div class="five columns">
-        <div class="round"></div>
-        <h4>Excercises:</h4>
-        <h5>Monday, Wednesday, and Friday</h5>
-              {{#data}}
-              <p>{{name}}</p>
-              {{/data}}
-      </div>
-    </div>
-
-    <div id="bottom-left" class="row">
-      <div class="five columns">
-        <div class="round"></div>
-        <h5>Tuesday and Thrusday</h5>
-              {{#data}}
-              <p>{{workout_name}}</p>
-              {{/data}}<!DOCTYPE html>
-<html>
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
@@ -58,6 +9,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" rel="stylesheet">
     <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="style.css" rel="stylesheet">
+    <title>
+      Expert Fitness | Our Workouts
+    </title>
   </head>
   <body>
     <div class="container">
@@ -73,7 +27,7 @@
         <nav class="twelve columns">
           <ul>
             <li>
-              <a href="http://localhost:7000/">Home</a>
+              <a href="http://localhost:9000/">Home</a>
             </li>
 
             <li>
@@ -117,7 +71,6 @@
 
       <div class="row" id="bottom-left">
         <div class="five columns">
-          <div class="round">
           </div>
 
           <h5>
@@ -128,8 +81,7 @@
             {{workout_name}}
           </p>
           {{/data}}
-        </div>
-      </div>
+
 
       <div class="row">
         <footer class="twelve columns">
@@ -148,20 +100,4 @@
     <script src="script.js" type="text/javascript">
     </script>
   </body>
-</html>
-      </div>
-    </div>
-
-    <div class="row">
-      <footer class="twelve columns">
-        <p><span class="goodbye">Find us on <a>twitter</a>, <a>facebook</a>!</span></p>
-
-        <p>&copy; Expert Fitness</p>
-      </footer>
-    </div>
-
-  </div>
-  <script type="text/javascript" src="jquery.js"></script>
-  <script type="text/javascript" src="script.js"></script>
-</body>
 </html>
