@@ -1,5 +1,5 @@
 # Expert-Fitness
-Fitness CRUD App
+CRUD App
 
 
 # Expert Fitness App hosted on Heroku
@@ -8,39 +8,26 @@ https://PLACEHOLDERLINK
 
 ## About
 
-PLACEHOLDERS
-
-
-### User Story
-PLACEHOLDERS
-
-### Pseudocode
-```
-THE MINIMAL VIABLE PRODUCT
 PLACEHOLDER
 
+### Wireframe Example
 
-```
-### Wireframe Examples
-*Changed idea from a clown punching game to a DOOM monster punching game*
-![alt tag](placeholder)
+![alt tag](http://i.imgur.com/pIVBlQOl.jpg)
 
-![alt tag](placeholder)
-
-### Challanges
-Working with the time contraints and overall project work I was unable to implement other attack features for the enemy other than the one-hit-kill option.
 
 ## Tech
+
 ### Frontend
-* HTML
-* CSS
-* Bootstrap
 * Javascript
 * jQuery
+* HTML
+* CSS
+* Skeleton CSS
+* Bootstrap
 
 ### Backend
 * AJAX
 * Node.js
-* NPM Packages(Express, Mustache-Express, )
 * SQL
+* A multitude of NPM Packages(Express, Mustache-Express, PG-Promise, etc.)
 
