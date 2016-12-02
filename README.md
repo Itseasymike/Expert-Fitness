@@ -1,8 +1,4 @@
-# Expert-Fitness
-CRUD App
-
-
-# Expert Fitness App hosted on Heroku
+# Expert Fitness CRUD App (hosted on Heroku)
 
 https://expert-fitness.herokuapp.com/
 
