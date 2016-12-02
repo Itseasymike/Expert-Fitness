@@ -1,7 +1,7 @@
 {
   "name": "project_2",
   "version": "1.0.0",
-  "description": "",
+  "description": "CRUD App",
   "main": "app.js",
   "engines": {
     "node": "6.8.1"
@@ -11,13 +11,27 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "bcrypt": "^0.8.7",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "fetch": "^1.1.0",
+    "method-override": "^2.3.7",
+    "mustache": "^2.3.0",
+    "mustache-express": "^1.2.4",
     "node-fetch": "^1.6.3",
+    "pg-promise": "^5.4.5",
     "request": "^2.79.0"
   },
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Itseasymike/Expert-Fitness.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Itseasymike/Expert-Fitness/issues"
+  },
+  "homepage": "https://github.com/Itseasymike/Expert-Fitness#readme"
 }
