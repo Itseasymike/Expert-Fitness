@@ -4,7 +4,7 @@ CRUD App
 
 # Expert Fitness App hosted on Heroku
 
-https://PLACEHOLDERLINK
+https://expert-fitness.herokuapp.com/
 
 ## About
 
